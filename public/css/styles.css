@@ -26,7 +26,10 @@
 	padding-bottom: 60px;
 }
 
-
+.bttt{
+    display: flex;
+    justify-content: flex-end;
+}
 .footer {
 	position: absolute;
 	text-align: center;
