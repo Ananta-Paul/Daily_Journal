@@ -1,0 +1,24 @@
+
+<%- include("partials/header")%>
+
+<%data.forEach(function(i){%>
+      <%var b=lodash.lowerCase(i.title);%>
+        
+      <%if(b.substring(0,a.length)==a){%>
+            <h1 class="pt-3"><%=i.title%></h1>
+            <p ><%=i.post%></p>
+            
+            <form action="/edit" method="Post" style="float:left">
+                <button type="submit"style="border-color: rgba(129, 135, 135, 0.963)" class="btn btn-light "name="edit" value="<%=i._id%>">
+                    <span class="far fa-edit"></span> Edit</button>
+           </form>
+            <form class=""action="/delete" method="Post">
+            <button type="submit" name="delete" value="<%=i._id%>"class="btn  btn-danger">Delete</button>
+           </form>
+      <% } %> 
+    
+     <%});%>
+    
+
+
+<%-include("partials/footer")%>
