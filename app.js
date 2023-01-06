@@ -15,7 +15,7 @@ app.locals.lodash = lodash;
 
 app.set('view engine', 'ejs');
 mongoose.set('strictQuery',false);
-mongoose.connect("mongodb://localhost:27017/blogDB",{useNewUrlParser: true});
+mongoose.connect("mongodb+srv://admin_ananta:732142@cluster0.5lntifs.mongodb.net/blogDB",{useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
@@ -51,6 +51,7 @@ app.get("/compose",function(req,res){
 app.post("/compose",function(req,res){
  
   if(req.body.comp){
+    if(req.body.title)
   Post.findByIdAndUpdate(req.body.comp, {title: req.body.title,post:req.body.postbody },
   function (err, docs) {
 if (err){
@@ -58,7 +59,7 @@ console.log(err)
 }
 
 });
-  }else{
+  }else if(req.body.title){
   const blogpost=new Post({title:req.body.title,post:req.body.postbody});
    blogpost.save();
   }

@@ -18,6 +18,10 @@
     font-size: 30px;
     font-family: Garamond, serif;
 }
+#page-container{
+    position: relative;
+    min-height: 100vh;
+}
 .footer-padding {
 	padding-bottom: 60px;
 }
